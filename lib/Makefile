@@ -16,12 +16,12 @@ OBJECTS			= $(FT_PRINTF:.c=.o)
 all:				$(NAME)
 
 all: $(NAME)
-	@echo "SUCCESS TO CREATE FT_PRINTF!!!"
-
+	
 $(NAME): $(LIBFT) $(OBJECTS)
 	@cp $(LIBFT) $(NAME)
 	@ar $(FLAGLIB) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
+	@echo "SUCCESS TO CREATE FT_PRINTF!!!"
 
 $(LIBFT): $(LIBFT_DIR)
 	@make -C $(LIBFT_DIR)
