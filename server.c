@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 	int	pid;
 
 	(void)av;
-	if ( ac != 1)
+	if (ac != 1)
 	{
 		ft_printf("\033[91mError: wrong format.\033[0m\n");
 		ft_printf("\033[33mTry: ./server\033[0m\n");

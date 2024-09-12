@@ -23,6 +23,6 @@ clean:
 		@make fclean -C $(LIB_DIR)
 
 fclean: clean
-		rm $(NAME)
+		rm -rf $(NAME)
 
 re: fclean all
