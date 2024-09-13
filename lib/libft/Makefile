@@ -29,7 +29,7 @@ CFLAGS 		= -Wall -Wextra -Werror
 NAME		= libft.a
 
 .c.o:
-			cc ${CFLAGS} -c $< -o ${<:.c=.o}
+			@cc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}

@@ -6,7 +6,7 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:53:08 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/09/11 16:15:30 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:38:59 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	handler(int signal)
 {
-	static int	bit = 0;
-	static int	i = 0;
+	static int	bit;
+	static int	i;
 
 	if (signal == SIGUSR1)
 		i |= (0x01 << bit);
@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 	ft_printf("\033[90mWaiting for a message...\033[0m\n");
 	signal(SIGUSR1, handler);
 	signal(SIGUSR2, handler);
-	while (ac == 1)
-		pause();
+	while (1)
+		;
 	return (EXIT_SUCCESS);
 }

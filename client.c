@@ -6,7 +6,7 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:13:50 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/09/11 16:30:26 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:33:36 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	send_bits(int pid, char c)
 			if ((kill(pid, SIGUSR2)) == -1)
 				msg_err("Something wrong with signal SIGUSR1!");
 		}
-		usleep(500);
+		usleep(900);
 		i++;
 	}
 }
