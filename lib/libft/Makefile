@@ -20,7 +20,7 @@ BONUS 		= ft_lstnew.c \
 
 BONUS_OBJS	= $(BONUS:.c=.o)
 
-RM			= rm -f
+RM			= rm -rf
 AR			= ar -rcs
 RN			= ranlib
 
@@ -32,20 +32,20 @@ NAME		= libft.a
 			@cc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
-			${AR} ${NAME} ${OBJS}
-			${RN} ${NAME}
+			@${AR} ${NAME} ${OBJS}
+			@${RN} ${NAME}
 
 all:		$(NAME)
 
 clean:
-			${RM} ${OBJS} ${BONUS_OBJS}
+			@${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
-			${RM} $(NAME)
+			@${RM} $(NAME)
 
 re:			fclean all
 
 bonus:		$(BONUS_OBJS)
-			${AR} $(NAME) $(BONUS_OBJS)
+			@${AR} $(NAME) $(BONUS_OBJS)
 
 .PHONY:		all clean fclean re bonus

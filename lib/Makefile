@@ -21,7 +21,7 @@ $(NAME): $(LIBFT) $(OBJECTS)
 	@cp $(LIBFT) $(NAME)
 	@ar $(FLAGLIB) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo "SUCCESS TO CREATE FT_PRINTF!!!"
+	@echo "-----SUCCESS TO CREATE FT_PRINTF!!!-----"
 
 $(LIBFT): $(LIBFT_DIR)
 	@make -C $(LIBFT_DIR)
