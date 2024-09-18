@@ -9,8 +9,8 @@ FLAG 	=	-g -Wall -Wextra -Werror
 all: $(NAME)
 
 % : %.c $(LIB)
+		@echo -n .
 		@$(CC) $(FLAG) $< $(LIB) -o $(DIR_OBJ)$@
-		@echo "Minitalk compiled"
 
 $(LIB): $(LIB_DIR)
 		@make -C $(LIB_DIR)

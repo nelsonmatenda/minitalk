@@ -10,13 +10,13 @@ RM				= /bin/rm -f
 LIBFT_DIR		= ./libft
 LIBFT			= ./libft/libft.a
 
-FT_PRINTF		= ft_printf_utils.c ft_putpointer.c ft_puthex.c ft_printf.c 
+FT_PRINTF		= ft_printf_utils.c ft_putpointer.c ft_puthex.c ft_printf.c
 OBJECTS			= $(FT_PRINTF:.c=.o)
 
 all:				$(NAME)
 
 all: $(NAME)
-	
+
 $(NAME): $(LIBFT) $(OBJECTS)
 	@cp $(LIBFT) $(NAME)
 	@ar $(FLAGLIB) $(NAME) $(OBJECTS)
@@ -27,6 +27,7 @@ $(LIBFT): $(LIBFT_DIR)
 	@make -C $(LIBFT_DIR)
 
 %.o: $(SRC)/%.c
+	@echo -n .
 	@cc $(CFLAGS) -c $< -o $@
 
 clean:

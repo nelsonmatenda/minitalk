@@ -29,6 +29,7 @@ CFLAGS 		= -Wall -Wextra -Werror
 NAME		= libft.a
 
 .c.o:
+			@echo -n .
 			@cc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
