@@ -6,24 +6,28 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:53:08 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/09/18 13:32:00 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/09/18 14:29:34 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minitalk.h"
 
-void	handler(int signal)
+void	ft_handler(int signal)
 {
-	static int	bit;
+	static char	c;
 	static int	i;
 
-	if (signal == SIGUSR1)
-		i |= (0x01 << bit);
-	bit++;
-	if (bit == 8)
+	if (signal == SIGUSR2)
+		c = (c * 2);
+	else if (signal == SIGUSR1)
+		c = ((c * 2) + 1);
+	i++;
+	if (i == 8)
 	{
-		ft_printf("%c", i);
-		bit = 0;
+		ft_printf("%c", c);
+		if (c == '\0')
+			ft_printf("\n");
+		c = 0;
 		i = 0;
 	}
 }
@@ -42,8 +46,8 @@ int	main(int ac, char **av)
 	pid = getpid();
 	ft_printf("\033[94mPID\033[0m \033[96m->\033[0m %d\n", pid);
 	ft_printf("\033[90mWaiting for a message...\033[0m\n");
-	signal(SIGUSR1, handler);
-	signal(SIGUSR2, handler);
+	signal(SIGUSR1, ft_handler);
+	signal(SIGUSR2, ft_handler);
 	while (1)
 		;
 	return (EXIT_SUCCESS);
