@@ -4,7 +4,7 @@ LIB_DIR =	./lib
 DIR_OBJS = ./obj/
 
 CC = cc
-FLAG 	=	-Wall -Wextra -Werror
+FLAG 	=	-g -Wall -Wextra -Werror
 
 all: $(NAME)
 

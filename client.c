@@ -6,7 +6,7 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:13:50 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/09/13 16:33:36 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:17:04 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void	send_bits(int pid, char c)
 {
 	int	i;
 
-	i = 0;
-	while (i < 8)
+	i = 8;
+	while (i--)
 	{
-		if ((c & (0x01 << i)) != 0)
+		if (((c >> i) & 0x01 ) != 0)
 		{
 			if ((kill(pid, SIGUSR1)) == -1)
 				msg_err("Something wrong with signal SIGUSR1!");
@@ -35,7 +35,7 @@ static void	send_bits(int pid, char c)
 			if ((kill(pid, SIGUSR2)) == -1)
 				msg_err("Something wrong with signal SIGUSR1!");
 		}
-		usleep(900);
+		usleep(100);
 		i++;
 	}
 }
